@@ -25,23 +25,27 @@ def test_ones():
 def test_twos():
     assert 4 == Yatzy(1, 2, 3, 2, 6).twos()
     assert 10 == Yatzy(2, 2, 2, 2, 2).twos()
+    assert 0 == Yatzy(3, 1, 4, 5, 6).twos()
 
 
 def test_threes():
     assert 6 == Yatzy(1, 2, 3, 2, 3).threes()
     assert 12 == Yatzy(2, 3, 3, 3, 3).threes()
+    assert 0 == Yatzy(2, 1, 1, 2, 2).threes()
 
 
 def test_fours():
     assert 12 == Yatzy(4, 4, 4, 5, 5).fours()
     assert 8 == Yatzy(4, 4, 5, 5, 5).fours()
     assert 4 == Yatzy(4, 5, 5, 5, 5).fours()
+    assert 0 == Yatzy(3, 5, 5, 5, 5).fours()
 
 
 def test_fives():
     assert 10 == Yatzy(4, 4, 4, 5, 5).fives()
     assert 15 == Yatzy(4, 4, 5, 5, 5).fives()
     assert 20 == Yatzy(4, 5, 5, 5, 5).fives()
+    assert 0 == Yatzy(4, 3, 3, 2, 1).fives()
 
 
 def test_sixes():
@@ -54,6 +58,7 @@ def test_one_pair():
     assert 6 == Yatzy(3, 4, 3, 5, 6).pair()
     assert 10 == Yatzy(5, 3, 3, 3, 5).pair()
     assert 12 == Yatzy(5, 3, 6, 6, 5).pair()
+    assert 0 == Yatzy(5, 3, 1, 6, 2).pair()
 
 
 def test_two_pair():
@@ -69,6 +74,7 @@ def test_three_of_a_kind():
     assert 9 == Yatzy(3, 3, 3, 4, 5).three_of_a_kind()
     assert 15 == Yatzy(5, 3, 5, 4, 5).three_of_a_kind()
     assert 9 == Yatzy(3, 3, 3, 3, 5).three_of_a_kind()
+    assert 0 == Yatzy(3, 1, 3, 2, 5).three_of_a_kind()
 
 
 def test_four_of_a_knd():
@@ -83,9 +89,11 @@ def test_small_straight():
     assert 30 == Yatzy(1, 2, 3, 4, 6).small_straight()
     assert 30 == Yatzy(2, 3, 4, 5, 1).small_straight()
     assert 0 == Yatzy(1, 2, 2, 4, 5).small_straight()
+    assert 0 == Yatzy(1, 1, 2, 3, 3).small_straight()
 
 
 def test_large_straight():
+    assert 40 == Yatzy(1, 2, 3, 4, 5).large_straight()
     assert 40 == Yatzy(2, 3, 4, 5, 6).large_straight()
     assert 0 == Yatzy(6, 2, 3, 4, 5).large_straight()
     assert 0 == Yatzy(1, 2, 2, 4, 5).large_straight()
