@@ -34,9 +34,7 @@ class Yatzy:
     def pair(self):
         dice_with_pairs = [d for d in self.unique_dice if self.dice.count(d) >= 2]
         if len(self.unique_dice) <= 4 and len(dice_with_pairs) >= 1:
-            return sum(d * 2 for d in self.unique_dice
-                       if self.dice.count(d) >= 2 and
-                       d == max(dice_with_pairs))
+            return max(dice_with_pairs) * 2
         return 0
 
     def two_pair(self):
